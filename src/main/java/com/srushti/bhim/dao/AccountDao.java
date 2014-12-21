@@ -51,9 +51,7 @@ public class AccountDao
 			jdbcTemplate
 					.update(
 							"insert into hyg_user (user_id,create_date, userName, password, oauthToken, oauthSecret, displayName, cluster, personal_reward, community_reward, predicted_avg, wr_d_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-							user.getUser_id(), new Date(), user.getUsername(), user.getPassword(), user.getOauthToken(),
-							user.getOauthSecret(), user.getDisplayName(), user.getCluster(), user.getPersonalReward(),
-							user.getCommunityReward(), user.getPredicted_Avg(), user.getWr_d_id());
+							user.getUser_id(), new Date(), user.getUsername(), user.getPassword());
 		}
 		catch (final DuplicateKeyException e)
 		{
@@ -68,8 +66,7 @@ public class AccountDao
 				{
 					public Account mapRow(ResultSet rs, int rowNum) throws SQLException
 					{
-						return new Account(rs.getString("userName"), null, rs.getString("displayName"), rs.getInt("user_id"), rs.getString("oauthToken"),
-								rs.getString("oauthSecret"), null, null, null, null, null);
+						return new Account(rs.getString("userName"), null, rs.getString("displayName"), rs.getInt("user_id"));
 					}
 				}, userName);
 	}
@@ -87,8 +84,7 @@ public class AccountDao
 
 		for (final Map account : accountList)
 		{
-			 Account accountObj = new Account(account.get("userName").toString(), null, account.get("displayName").toString(), (Integer)account.get("user_id"), null,
-						null, null, null, null, null, account.get("wr_d_id").toString());
+			 Account accountObj = new Account(account.get("userName").toString(), null, account.get("displayName").toString(), (Integer)account.get("user_id"));
 			 userList.add(accountObj);
 			}
 		
