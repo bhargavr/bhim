@@ -17,16 +17,13 @@ apply plugin: 'spring-boot'
 apply plugin: 'war'
 
 war {
-    baseName = 'hygiea'
+    baseName = 'bhim'
 }
 sourceCompatibility = 1.6
 targetCompatibility = 1.6
 
 repositories {
     mavenCentral()
-    flatDir {
-       dirs '/home/bhargav/Downloads'
-   }
 }
 
 configurations {
@@ -38,7 +35,6 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-security")
 	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
     testCompile("org.springframework.boot:spring-boot-starter-test")
-    compile name: 'fitbit4j-1.0.26'
     compile "org.json:json:20090211"
     compile "joda-time:joda-time:2.1"
     compile "commons-lang:commons-lang:2.6"
