@@ -19,7 +19,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.srushti.bhim.dto.Account;
-import com.srushti.bhim.dto.Reward;
 import com.srushti.bhim.exception.UsernameAlreadyInUseException;
 
 

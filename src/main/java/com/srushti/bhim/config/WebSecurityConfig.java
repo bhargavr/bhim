@@ -40,8 +40,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
             .authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers("/RegisterUser").permitAll()
-                .antMatchers("/registerController").permitAll()
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
@@ -57,14 +55,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-//        auth
-//            .inMemoryAuthentication()
-//                .withUser("user").password("password").roles("USER");
+        auth
+            .inMemoryAuthentication()
+                .withUser("user").password("password").roles("USER");
     	
-		auth.jdbcAuthentication()
-		.dataSource(dataSource)
-		.usersByUsernameQuery("select userName, password, true from hyg_user where userName = ?")
-		.authoritiesByUsernameQuery("select userName, 'ROLE_USER' from hyg_user where userName = ?");
+//		auth.jdbcAuthentication()
+//		.dataSource(dataSource)
+//		.usersByUsernameQuery("select userName, password, true from hyg_user where userName = ?")
+//		.authoritiesByUsernameQuery("select userName, 'ROLE_USER' from hyg_user where userName = ?");
     }
     
     @Bean
