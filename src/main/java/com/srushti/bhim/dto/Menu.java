@@ -14,7 +14,7 @@ public class Menu {
 	
 	
 	private Integer menu_id;
-	
+
 	private Date create_date;
 	
 	private String menuName;
@@ -25,6 +25,10 @@ public class Menu {
 
 	private List<MenuItem> menuItems;
 	
+	public Menu() {
+		
+	}
+		
 	public Menu(Integer menu_id, Date create_date, String menuName, String resturant, String menuType,
 			List<MenuItem> menuItems){
 		this.menu_id = menu_id;
@@ -76,4 +80,30 @@ public class Menu {
 	public List<MenuItem> getMenuItems() {
 		return menuItems;
 	}
+	
+	
+	public void setMenu_id(Integer menu_id) {
+		this.menu_id = menu_id;
+	}
+
+	public void setCreate_date(Date create_date) {
+		this.create_date = create_date;
+	}
+
+	public void setMenuName(String menuName) {
+		this.menuName = menuName;
+	}
+
+	public void setResturant(String resturant) {
+		this.resturant = resturant;
+	}
+
+	public void setMenuType(String menuType) {
+		this.menuType = menuType;
+	}
+
+	public void setMenuItems(List<MenuItem> menuItems) {
+		this.menuItems = menuItems;
+	}
+
 }
