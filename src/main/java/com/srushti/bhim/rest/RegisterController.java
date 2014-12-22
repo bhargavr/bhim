@@ -7,6 +7,7 @@ import java.util.UUID;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,8 +23,7 @@ import com.srushti.bhim.dto.PartnerInfo;
 public class RegisterController {
 
 	@RequestMapping(value = "/register/partner", method = RequestMethod.POST)
-	public ResponseEntity<PartnerInfo> registerPatner(PartnerInfo patnerInfo) {
-		System.out.println("patnerInfo *****=" + patnerInfo.getName());
+	public ResponseEntity<PartnerInfo> registerPatner(@RequestBody PartnerInfo patnerInfo) {
 		if (patnerInfo != null) {
 			patnerInfo.setName("testst");
 			patnerInfo.setAddress("holly");
@@ -35,7 +35,7 @@ public class RegisterController {
 
 	@RequestMapping(value = "/register/partner/{id}/device/{deviceId}", method = RequestMethod.POST)
 	public ResponseEntity<PartnerInfo> registerPatnerDevice(
-			PartnerInfo patnerInfo) {
+			@RequestBody PartnerInfo patnerInfo) {
 		System.out.println("patnerInfo *****=" + patnerInfo.getName());
 		if (patnerInfo != null) {
 			patnerInfo.setName("testst");

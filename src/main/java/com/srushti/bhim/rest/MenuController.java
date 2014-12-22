@@ -10,6 +10,7 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -67,7 +68,7 @@ public class MenuController {
 	}
 
 	@RequestMapping(value = "/add/menu", method = RequestMethod.POST)
-	public ResponseEntity<Menu> addMenu(Menu menu) {
+	public ResponseEntity<Menu> addMenu(@RequestBody Menu menu) {
 		if (menu != null) {
 			menu.setMenuName("Dosa");
 			menu.setCreate_date(new Date());
